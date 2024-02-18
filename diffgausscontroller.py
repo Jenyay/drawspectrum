@@ -24,7 +24,7 @@ class DiffGaussController(BaseGaussController):
         Функция, задающая форму сигнала
         """
         return (
-            -(time - self._mu)
-            / ((self._sigma**3) * numpy.sqrt(2.0 * numpy.pi))
-            * numpy.exp(-((time - self._mu) ** 2) / (2.0 * (self._sigma**2)))
+            -2 * (time - self._mu)
+            / self._sigma
+            * numpy.exp(-((time - self._mu) ** 2) / (self._sigma**2))
         )
