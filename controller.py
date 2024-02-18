@@ -7,7 +7,7 @@ import numpy
 import numpy.fft
 
 
-class Controller (metaclass=ABCMeta):
+class Controller(metaclass=ABCMeta):
     """
     Базовый класс контроллеров для разных сигналов
     """
@@ -86,7 +86,6 @@ class Controller (metaclass=ABCMeta):
     def spectrum(self):
         df = 1.0 / (self.signalLength * self.dt)
         freq = numpy.arange(self.signalLength / 2 + 1) * df
-        spectrum = numpy.abs(numpy.fft.rfft(
-            self.signal[1])) / self.signalLength
+        spectrum = numpy.abs(numpy.fft.rfft(self.signal[1])) / self.signalLength
 
         return freq, spectrum

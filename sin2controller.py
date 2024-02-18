@@ -7,7 +7,7 @@ from controller import Controller
 from sin2panel import Sin2Panel
 
 
-class Sin2Controller (Controller):
+class Sin2Controller(Controller):
     """
     Класс контроллера для отображения сигнала и спектра двух синусоид
     """
@@ -39,16 +39,18 @@ class Sin2Controller (Controller):
             self._freq[0] = float(self.panel.frequency1) * 1.0e9
             self._freq[1] = float(self.panel.frequency2) * 1.0e9
         except ValueError:
-            wx.MessageBox(u"Ошибка формата в поле 'Частота'",
-                          u"Ошибка", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(
+                "Ошибка формата в поле 'Частота'", "Ошибка", wx.OK | wx.ICON_ERROR
+            )
             return False
 
         try:
             self._amplitude[0] = float(self.panel.amplitude1)
             self._amplitude[1] = float(self.panel.amplitude2)
         except ValueError:
-            wx.MessageBox(u"Ошибка формата в поле 'Амплитуда'",
-                          u"Ошибка", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(
+                "Ошибка формата в поле 'Амплитуда'", "Ошибка", wx.OK | wx.ICON_ERROR
+            )
             return False
 
         return True
@@ -58,7 +60,7 @@ class Sin2Controller (Controller):
 
     @property
     def title(self):
-        return u"Sin + Sin"
+        return "Sin + Sin"
 
     def function(self, time):
         """
@@ -66,7 +68,8 @@ class Sin2Controller (Controller):
         """
         result = 0
         for freq, phase, amp in zip(self._freq, self._phase, self._amplitude):
-            result = result + amp * \
-                numpy.sin(2.0 * numpy.pi * freq * time + numpy.radians(phase))
+            result = result + amp * numpy.sin(
+                2.0 * numpy.pi * freq * time + numpy.radians(phase)
+            )
 
         return result

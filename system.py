@@ -7,5 +7,5 @@ import os.path
 import sys
 
 
-def getCurrentDir ():
-    return os.path.dirname (sys.argv[0])
+def getCurrentDir():
+    return os.path.dirname(sys.argv[0])

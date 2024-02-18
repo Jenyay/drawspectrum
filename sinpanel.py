@@ -3,7 +3,7 @@
 import wx
 
 
-class SinPanel (wx.Panel):
+class SinPanel(wx.Panel):
     """
     Панель для настроек параметров сигнала в виде одной синусоиды
     """
@@ -18,21 +18,23 @@ class SinPanel (wx.Panel):
         mainSizer.AddGrowableCol(0)
         mainSizer.AddGrowableCol(1)
 
-        freqLabel = wx.StaticText(self, label=u"Частота (ГГц)")
+        freqLabel = wx.StaticText(self, label="Частота (ГГц)")
         self.freqText = wx.TextCtrl(self)
         self.freqText.SetMinSize((150, -1))
 
-        mainSizer.Add(freqLabel,
-                      1,
-                      flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
-                      border=2
-                      )
+        mainSizer.Add(
+            freqLabel,
+            1,
+            flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
+            border=2,
+        )
 
-        mainSizer.Add(self.freqText,
-                      1,
-                      flag=wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
-                      border=2
-                      )
+        mainSizer.Add(
+            self.freqText,
+            1,
+            flag=wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
+            border=2,
+        )
 
         self.SetSizer(mainSizer)
 

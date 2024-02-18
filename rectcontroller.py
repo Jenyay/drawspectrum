@@ -7,7 +7,7 @@ from controller import Controller
 from rectpanel import RectPanel
 
 
-class RectController (Controller):
+class RectController(Controller):
     """
     Класс контроллера для отображения сигнала и спектра прямоугольного импульса
     """
@@ -32,8 +32,11 @@ class RectController (Controller):
         try:
             self._length = self.panel.length * 1.0e-9
         except ValueError:
-            wx.MessageBox(u"Ошибка формата в поле 'Длительность сигнала'",
-                          u"Ошибка", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(
+                "Ошибка формата в поле 'Длительность сигнала'",
+                "Ошибка",
+                wx.OK | wx.ICON_ERROR,
+            )
             return False
 
         return True
@@ -43,10 +46,12 @@ class RectController (Controller):
 
     @property
     def title(self):
-        return u"Прямоугольный импульс"
+        return "Прямоугольный импульс"
 
     def function(self, time):
         """
         Функция, задающая форму сигнала
         """
-        return self._amplitude * numpy.array([1.0 if t <= self._length else 0.0 for t in time])
+        return self._amplitude * numpy.array(
+            [1.0 if t <= self._length else 0.0 for t in time]
+        )

@@ -12,7 +12,7 @@ from diffgausscontroller import DiffGaussController
 from cutgausscontroller import CutGaussController
 
 
-class MainWindow (wx.Frame):
+class MainWindow(wx.Frame):
     """
     Главное окно, содержащее все элементы управления для рисования спектра
     """
@@ -20,7 +20,7 @@ class MainWindow (wx.Frame):
     def __init__(self, *args, **kwds):
         kwds["style"] = wx.DEFAULT_FRAME_STYLE
         super(MainWindow, self).__init__(*args, **kwds)
-        self.SetTitle(u"Рисование спектра сигнала")
+        self.SetTitle("Рисование спектра сигнала")
 
         self.SetSize((900, 700))
 
@@ -55,23 +55,14 @@ class MainWindow (wx.Frame):
         mainSizer.AddGrowableRow(2)
 
         self.tabsCtrl = wx.Notebook(self)
-        mainSizer.Add(self.tabsCtrl,
-                      1,
-                      flag=wx.EXPAND | wx.ALL,
-                      border=2)
+        mainSizer.Add(self.tabsCtrl, 1, flag=wx.EXPAND | wx.ALL, border=2)
 
-        self.updateBtn = wx.Button(self, label=u"Обновить")
+        self.updateBtn = wx.Button(self, label="Обновить")
 
-        mainSizer.Add(self.updateBtn,
-                      1,
-                      flag=wx.ALIGN_RIGHT | wx.ALL,
-                      border=2)
+        mainSizer.Add(self.updateBtn, 1, flag=wx.ALIGN_RIGHT | wx.ALL, border=2)
 
         self.canvas = GraphCanvas(self)
-        mainSizer.Add(self.canvas,
-                      1,
-                      flag=wx.EXPAND | wx.ALL,
-                      border=2)
+        mainSizer.Add(self.canvas, 1, flag=wx.EXPAND | wx.ALL, border=2)
 
         self.SetSizer(mainSizer)
         self.Layout()

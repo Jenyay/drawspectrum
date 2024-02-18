@@ -7,7 +7,7 @@ import wx
 from controller import Controller
 
 
-class BaseGaussController (Controller, metaclass=ABCMeta):
+class BaseGaussController(Controller, metaclass=ABCMeta):
     """
     Базовый класс для контроллеров на основе функции Гаусса
     """
@@ -30,15 +30,17 @@ class BaseGaussController (Controller, metaclass=ABCMeta):
         try:
             self._sigma = self.panel.sigma * 1.0e-9
         except ValueError:
-            wx.MessageBox(u"Ошибка формата в поле '\u03c3'",
-                          u"Ошибка", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(
+                "Ошибка формата в поле '\u03c3'", "Ошибка", wx.OK | wx.ICON_ERROR
+            )
             return False
 
         try:
             self._mu = self.panel.mu * 1.0e-9
         except ValueError:
-            wx.MessageBox(u"Ошибка формата в поле '\u03bc'",
-                          u"Ошибка", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(
+                "Ошибка формата в поле '\u03bc'", "Ошибка", wx.OK | wx.ICON_ERROR
+            )
             return False
 
         return True

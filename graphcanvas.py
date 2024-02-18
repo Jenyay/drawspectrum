@@ -7,7 +7,7 @@ import matplotlib.figure
 from matplotlib.backends.backend_wxagg import FigureCanvasWxAgg
 
 
-class GraphCanvas (wx.Panel):
+class GraphCanvas(wx.Panel):
     def __init__(self, parent):
         super().__init__(parent)
         self._createCanvas()
@@ -37,10 +37,7 @@ class GraphCanvas (wx.Panel):
 
         self.updateAxesView()
 
-        canvasSizer.Add(self.canvas,
-                        1,
-                        flag=wx.EXPAND | wx.ALL,
-                        border=2)
+        canvasSizer.Add(self.canvas, 1, flag=wx.EXPAND | wx.ALL, border=2)
 
         self.SetSizer(canvasSizer)
         self.Layout()
@@ -51,7 +48,8 @@ class GraphCanvas (wx.Panel):
 
         ymargin = (numpy.max(values) - numpy.min(values)) * 0.1 / 2
         self.signalAxes.set_ylim(
-            [numpy.min(values) - ymargin, numpy.max(values) + ymargin])
+            [numpy.min(values) - ymargin, numpy.max(values) + ymargin]
+        )
 
         self.updateAxesView()
         self.canvas.draw()
@@ -65,14 +63,16 @@ class GraphCanvas (wx.Panel):
 
     def updateAxesView(self):
         self.signalAxes.set_xlabel(
-            u"t, с", fontdict={'family': 'verdana', 'size': 'small'})
-        self.signalAxes.set_ylabel(
-            u"В", fontdict={'family': 'verdana', 'size': 'small'})
+            "t, с", fontdict={"family": "verdana", "size": "small"}
+        )
+        self.signalAxes.set_ylabel("В", fontdict={"family": "verdana", "size": "small"})
 
         self.ampSpectrumAxes.set_xlabel(
-            u"f, ГГц", fontdict={'family': 'verdana', 'size': 'small'})
+            "f, ГГц", fontdict={"family": "verdana", "size": "small"}
+        )
         self.ampSpectrumAxes.set_ylabel(
-            u"В / Гц", fontdict={'family': 'verdana', 'size': 'small'})
+            "В / Гц", fontdict={"family": "verdana", "size": "small"}
+        )
 
     def _draw(self, axes, xval, yval):
         axes.clear()

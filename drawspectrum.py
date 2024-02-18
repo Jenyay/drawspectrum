@@ -10,9 +10,9 @@ class DrawSpectrum(wx.App):
     """
     Класс приложения для рисования спектров
     """
+
     def __init__(self, *args, **kwds):
         wx.App.__init__(self, *args, **kwds)
-
 
     def OnInit(self):
         mainWnd = MainWindow(None, -1, "")

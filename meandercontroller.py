@@ -7,7 +7,7 @@ from controller import Controller
 from meanderpanel import MeanderPanel
 
 
-class MeanderController (Controller):
+class MeanderController(Controller):
     """
     Класс контроллера для отображения сигнала и спектра меандра
     """
@@ -36,15 +36,17 @@ class MeanderController (Controller):
         try:
             self._period = self.panel.period * 1.0e-9
         except ValueError:
-            wx.MessageBox(u"Ошибка формата в поле 'Период'",
-                          u"Ошибка", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(
+                "Ошибка формата в поле 'Период'", "Ошибка", wx.OK | wx.ICON_ERROR
+            )
             return False
 
         try:
             self._duty = self.panel.duty
         except ValueError:
-            wx.MessageBox(u"Ошибка формата в поле 'Скважность'",
-                          u"Ошибка", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(
+                "Ошибка формата в поле 'Скважность'", "Ошибка", wx.OK | wx.ICON_ERROR
+            )
             return False
 
         return True
@@ -54,12 +56,16 @@ class MeanderController (Controller):
 
     @property
     def title(self):
-        return u"Последовательность видеоимпульсов"
+        return "Последовательность видеоимпульсов"
 
     def function(self, time):
         """
         Функция, задающая форму сигнала
         """
-        newtime = numpy.arcsin(
-            numpy.sin(2.0 * numpy.pi / self._period * time + numpy.pi / 2)) + numpy.pi / 2
-        return self._amplitude * numpy.array([1.0 if t <= numpy.pi * self._duty else 0.0 for t in newtime])
+        newtime = (
+            numpy.arcsin(numpy.sin(2.0 * numpy.pi / self._period * time + numpy.pi / 2))
+            + numpy.pi / 2
+        )
+        return self._amplitude * numpy.array(
+            [1.0 if t <= numpy.pi * self._duty else 0.0 for t in newtime]
+        )

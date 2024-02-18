@@ -7,7 +7,7 @@ from controller import Controller
 from sinpanel import SinPanel
 
 
-class SinController (Controller):
+class SinController(Controller):
     """
     Класс контроллера для отображения сигнала и спектра одной синусоиды
     """
@@ -35,8 +35,9 @@ class SinController (Controller):
         try:
             self._freq = self.panel.frequency * 1.0e9
         except ValueError:
-            wx.MessageBox(u"Ошибка формата в поле 'Частота'",
-                          u"Ошибка", wx.OK | wx.ICON_ERROR)
+            wx.MessageBox(
+                "Ошибка формата в поле 'Частота'", "Ошибка", wx.OK | wx.ICON_ERROR
+            )
             return False
 
         return True
@@ -46,10 +47,12 @@ class SinController (Controller):
 
     @property
     def title(self):
-        return u"Sin"
+        return "Sin"
 
     def function(self, time):
         """
         Функция, задающая форму сигнала
         """
-        return self._amplitude * numpy.sin(2.0 * numpy.pi * self._freq * time + numpy.radians(self._phase))
+        return self._amplitude * numpy.sin(
+            2.0 * numpy.pi * self._freq * time + numpy.radians(self._phase)
+        )

@@ -3,7 +3,7 @@
 import wx
 
 
-class MeanderPanel (wx.Panel):
+class MeanderPanel(wx.Panel):
     """
     Панель для настроек параметров сигнала в виде меандра
     """
@@ -18,37 +18,41 @@ class MeanderPanel (wx.Panel):
         mainSizer.AddGrowableCol(0)
         mainSizer.AddGrowableCol(1)
 
-        periodLabel = wx.StaticText(self, label=u"Период (нс)")
+        periodLabel = wx.StaticText(self, label="Период (нс)")
         self.periodText = wx.TextCtrl(self)
         self.periodText.SetMinSize((150, -1))
 
-        dutyLabel = wx.StaticText(self, label=u"Скважность")
+        dutyLabel = wx.StaticText(self, label="Скважность")
         self.dutyText = wx.TextCtrl(self)
         self.dutyText.SetMinSize((150, -1))
 
-        mainSizer.Add(periodLabel,
-                      1,
-                      flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
-                      border=2
-                      )
+        mainSizer.Add(
+            periodLabel,
+            1,
+            flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
+            border=2,
+        )
 
-        mainSizer.Add(self.periodText,
-                      1,
-                      flag=wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
-                      border=2
-                      )
+        mainSizer.Add(
+            self.periodText,
+            1,
+            flag=wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
+            border=2,
+        )
 
-        mainSizer.Add(dutyLabel,
-                      1,
-                      flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
-                      border=2
-                      )
+        mainSizer.Add(
+            dutyLabel,
+            1,
+            flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
+            border=2,
+        )
 
-        mainSizer.Add(self.dutyText,
-                      1,
-                      flag=wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
-                      border=2
-                      )
+        mainSizer.Add(
+            self.dutyText,
+            1,
+            flag=wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
+            border=2,
+        )
 
         self.SetSizer(mainSizer)
 

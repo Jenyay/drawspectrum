@@ -3,7 +3,7 @@
 import wx
 
 
-class RectPanel (wx.Panel):
+class RectPanel(wx.Panel):
     """
     Панель для настроек параметров сигнала в виде одиночного видеоимпульса
     """
@@ -18,21 +18,23 @@ class RectPanel (wx.Panel):
         mainSizer.AddGrowableCol(0)
         mainSizer.AddGrowableCol(1)
 
-        lengthLabel = wx.StaticText(self, label=u"Длительность импульса (нс)")
+        lengthLabel = wx.StaticText(self, label="Длительность импульса (нс)")
         self.lengthText = wx.TextCtrl(self)
         self.lengthText.SetMinSize((150, -1))
 
-        mainSizer.Add(lengthLabel,
-                      1,
-                      flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
-                      border=2
-                      )
+        mainSizer.Add(
+            lengthLabel,
+            1,
+            flag=wx.ALIGN_LEFT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
+            border=2,
+        )
 
-        mainSizer.Add(self.lengthText,
-                      1,
-                      flag=wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
-                      border=2
-                      )
+        mainSizer.Add(
+            self.lengthText,
+            1,
+            flag=wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL | wx.ALL,
+            border=2,
+        )
 
         self.SetSizer(mainSizer)
 
