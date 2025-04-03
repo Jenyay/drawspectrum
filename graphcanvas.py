@@ -63,15 +63,15 @@ class GraphCanvas(wx.Panel):
 
     def updateAxesView(self):
         self.signalAxes.set_xlabel(
-            "t, с", fontdict={"family": "verdana", "size": "small"}
+            "t, с", fontdict={"size": "small"}
         )
-        self.signalAxes.set_ylabel("В", fontdict={"family": "verdana", "size": "small"})
+        self.signalAxes.set_ylabel("В", fontdict={"size": "small"})
 
         self.ampSpectrumAxes.set_xlabel(
-            "f, ГГц", fontdict={"family": "verdana", "size": "small"}
+            "f, ГГц", fontdict={"size": "small"}
         )
         self.ampSpectrumAxes.set_ylabel(
-            "В / Гц", fontdict={"family": "verdana", "size": "small"}
+            "В / Гц", fontdict={"size": "small"}
         )
 
     def _draw(self, axes, xval, yval):
