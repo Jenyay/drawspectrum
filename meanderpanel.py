@@ -22,7 +22,7 @@ class MeanderPanel(wx.Panel):
         self.periodText = wx.TextCtrl(self)
         self.periodText.SetMinSize((150, -1))
 
-        dutyLabel = wx.StaticText(self, label="Скважность")
+        dutyLabel = wx.StaticText(self, label="Коэффициент заполнения")
         self.dutyText = wx.TextCtrl(self)
         self.dutyText.SetMinSize((150, -1))
 
