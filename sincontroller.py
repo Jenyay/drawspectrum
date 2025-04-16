@@ -24,7 +24,7 @@ class SinController(Controller):
         self._freq = 1.0e9
 
         # Начальная фаза (в градусах)
-        self._phase = 0.0
+        self._phase = 90.0
 
         # Амплитуда синусоиды
         self._amplitude = 1.0
@@ -47,7 +47,7 @@ class SinController(Controller):
 
     @property
     def title(self):
-        return "Sin"
+        return "cos"
 
     def function(self, time):
         """

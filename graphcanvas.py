@@ -47,6 +47,8 @@ class GraphCanvas(wx.Panel):
         self.signalAxes.set_xlim([0, 10])
 
         ymargin = (numpy.max(values) - numpy.min(values)) * 0.1 / 2
+        if ymargin == 0:
+            ymargin = 0.1
         self.signalAxes.set_ylim(
             [numpy.min(values) - ymargin, numpy.max(values) + ymargin]
         )

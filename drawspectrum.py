@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: UTF-8 -*-
 
+import os
+
 import wx
 
 from mainwindow import MainWindow
@@ -12,6 +14,7 @@ class DrawSpectrum(wx.App):
     """
 
     def __init__(self, *args, **kwds):
+        os.environ["GTK_THEME"] = ":light"
         wx.App.__init__(self, *args, **kwds)
 
     def OnInit(self):
